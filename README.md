@@ -152,22 +152,19 @@ Once installed and configured, you can run the CII `ADSync.ps1` script to collec
 
 The CII `ADSync.ps1` script is highly customizable to fit your specific Active Directory environment and Cisco Identity Intelligence requirements. These customizations are made in a separate PowerShell data file (`.psd1`).
 
-A sample customization file, `ADSync.Config.psd1`, is provided for you to customize with the options below.  ADSync has a default configuration so it is only necessary to define the items you want to customize.
+A sample customization file, `ADSync.Config.psd1`, is provided for you to customize using any of the options below.  ADSync has a default configuration so it is only necessary to define the items you want to customize.  The sample file contains commented-out examples of the settings that are supported for your convenience. You will need to uncomment the lines (remove the leading #) to enable them.
 
 Available customizations:
 
 *   **Attribute Filtering**:
-    You can configure which Active Directory attributes to exclude to control the data sent to CII. The script includes a list of excluded attributes where you can add any properties you do not wish to be collected.
-
+    You can configure which Active Directory attributes to exclude to control the data sent to CII. The script includes a built-in list of excluded attributes. If you have additional sensitive attributes that you wish to exclude, you can define them using the `additionalExcludedProperties` setting.
+    
     Futher, if you receive a warning about any large attributes they should be reviewed and potentially excluded.
 
 > ```powershell
-> excludedAttributes = @(
->     "ntSecurityDescriptor",
->     "userCertificate",
->     "thumbnailPhoto",
->     "unicodePwd",
->     "ntPwdHistory"
+> additionalExcludedAttributes = @(
+>     "directoryPhoto",
+>     "sensitiveData"
 >     # Add more attributes as needed
 > )
 > ```

@@ -1,4 +1,11 @@
 @{
+    # Configuration settings for Active Directory synchronization
+    #
+    # Commented-out examples are provided for customization
+    # Refer to the documentation for details on each setting
+    # Customize any settings as needed for your environment
+    # Uncomment the lines (remove the leading #) to enable them
+
     # Example: Specify a domain controller to connect to (optional)
     # domainController = "dc01.corp.example.com"
 
@@ -30,36 +37,10 @@
     #     }
     # }
 
-    # Example: Exclude specific attributes from sync (default full list)
-    # excludedAttributes = @(
-    #     "ntSecurityDescriptor",
-    #     "PropertyNames",
-    #     "userCertificate",
-    #     "thumbnailPhoto",
-    #     "msPKIAccountCredentials",
-    #     "msExchSafeSendersHash",
-    #     "msExchSafeRecipientsHash",
-    #     "msPKIDPAPIMasterKey",
-    #     "msExchBlockedSendersHash",
-    #     "msExchUMDtmfMap",
-    #     "msExchUMSpokenName",
-    #     "logonHours",
-    #     "userParameters",
-    #     "unicodePwd",
-    #     "dBCSPwd",
-    #     "lmPwdHistory",
-    #     "ntPwdHistory",
-    #     "supplementalCredentials",
-    #     "msDS-KeyCredentialLink",
-    #     "memberOf",
-    #     "mS-DS-ConsistencyGuid",
-    #     "msExchMailboxGuid",
-    #     "msExchMailboxSecurityDescriptor",
-    #     "msExchMasterAccountSid",
-    #     "msMqDigests",
-    #     "terminalServer",
-    #     "protocolSettings",
-    #     "unixUserPassword"
+    # Example: Add more attributes to exclude (these are appended to the default internal list)
+    # additionalExcludedAttributes = @(
+    #     "jpegPhoto",
+    #     "msDS-CloudExtensions"
     # )
 
     # Example: Only include these security groups in group membership uploads

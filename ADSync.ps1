@@ -280,6 +280,13 @@ function Apply-CustomConfiguration {
     if ($ConfigData.accountOwnerAttribute) {
         $script:accountOwnerAttribute = $ConfigData.accountOwnerAttribute
     }
+    if ($ConfigData.additionalExcludedAttributes) {
+        foreach ($attr in $ConfigData.additionalExcludedAttributes) {
+            if ($script:excludedAttributes -notcontains $attr) {
+                $script:excludedAttributes += $attr
+            }
+        }
+    }
 }
 
 # Initialize default customization settings
